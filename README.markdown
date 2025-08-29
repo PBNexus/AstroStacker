@@ -19,7 +19,8 @@ Processing steps:
 4. Application of calibration corrections  
 
 Output can be generated in the following formats:  
-`fits`, `tiff`, `png`, `jpg`  
+`fits`, `tiff`, `png`, `jpg`
+  
 ---
 
 ## Highlights
