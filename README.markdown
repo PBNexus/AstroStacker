@@ -3,9 +3,23 @@
 ✨ Quick snapshot
 AstroStacker is a local FastAPI-based image stacking pipeline aimed at astrophotography processing: calibration, hot-pixel removal, alignment, background subtraction and final stacking — with a tiny web UI for uploads and previews.
 
->You will upload lights, darks, biases, and flats (lights is mandatory(ofcourse), rest are optional)
->Uploaded frames can be of the following types: '.jpg', '.jpeg', '.png', '.tiff', '.tif','.fits', '.fit', '.cr2', '.nef', '.dng', '.arw'
->It does the usual processes, images are aligned, calibration frames are made, Hot and Cold Pixels are removed, of the images takes place. and output is given in one of the selected formats- Output files can be of following types: 'fits', 'tiff', 'png', 'jpg'
+Upload the following calibration frames:  
+- **Lights** (mandatory)  
+- **Darks** (optional)  
+- **Biases** (optional)  
+- **Flats** (optional)  
+
+Accepted input formats:  
+`.jpg`, `.jpeg`, `.png`, `.tiff`, `.tif`, `.fits`, `.fit`, `.cr2`, `.nef`, `.dng`, `.arw`  
+
+Processing steps:  
+1. Frame alignment  
+2. Construction of master calibration frames  
+3. Removal of hot and cold pixels  
+4. Application of calibration corrections  
+
+Output can be generated in the following formats:  
+`fits`, `tiff`, `png`, `jpg`  
 ---
 
 ## Highlights
