@@ -1,0 +1,78 @@
+# Byte-compiled / build / packaging
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+__pypackages__/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+venv.bak/
+
+# Environment / secrets
+.env
+.env.*
+secrets.json
+*.key
+*.pem
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Python testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Type checkers
+.mypy_cache/
+.pyre/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Static / frontend deps (if any)
+node_modules/
+static/node_modules/
+static/dist/
+
+# Data / outputs (ignore large/temporary data)
+# Keep a placeholder like `data/.gitkeep` if you want to track the directory.
+data/
+data/*
+!data/.gitkeep
+
+# Temporary files and caches
+tmp/
+temp/
+*.tmp
+
+# Compiled extensions
+*.so
+*.dylib
+
+# Python packaging / installers
+.Python
+
+# IDE-specific
+.vscode/
+*.code-workspace
+
+# Allow an explicit override if you must track something
+# e.g. to keep a small example dataset: !data/example/

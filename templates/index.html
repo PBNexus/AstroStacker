@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 AstroStacker v0.4</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌌 AstroStacker v0.4</h1>
+            <p>Stack those stellar shots like a pro ✨</p>
+        </header>
+
+        <div class="validation-warnings-section" id="validationWarningsSection" style="display: none;">
+            <h3>⚠️ Validation Warnings</h3>
+            <div class="warnings-list" id="warningsList">
+                </div>
+        </div>
+
+        <div class="upload-section">
+            <div class="file-upload-area">
+                <h3>🌟 Light Frames</h3>
+                <p class="subtitle">Your main astro shots (required)</p>
+                <div class="drop-zone" id="lightDropZone">
+                    <div class="drop-zone-content">
+                        <div class="upload-icon">📁</div>
+                        <p class="drop-text">Drop your light frames here</p>
+                        <p class="or-text">or</p>
+                        <button class="btn btn-browse" id="lightBrowseBtn">Browse Files</button>
+                        <input type="file" id="lightFileInput" class="file-input" multiple accept=".fits,.fit,.cr2,.nef,.dng,.jpg,.jpeg,.png,.tiff,.tif">
+                    </div>
+                </div>
+                <div class="file-list" id="lightFileList"></div>
+            </div>
+
+            <div class="file-upload-area">
+                <h3>🌑 Dark Frames</h3>
+                <p class="subtitle">Match light frame conditions (optional)</p>
+                <div class="drop-zone" id="darkDropZone">
+                    <div class="drop-zone-content">
+                        <div class="upload-icon">📁</div>
+                        <p class="drop-text">Drop your dark frames here</p>
+                        <p class="or-text">or</p>
+                        <button class="btn btn-browse" id="darkBrowseBtn">Browse Files</button>
+                        <input type="file" id="darkFileInput" class="file-input" multiple accept=".fits,.fit,.cr2,.nef,.dng,.jpg,.jpeg,.png,.tiff,.tif">
+                    </div>
+                </div>
+                <div class="file-list" id="darkFileList"></div>
+            </div>
+
+            <div class="file-upload-area">
+                <h3>⚪ Bias Frames</h3>
+                <p class="subtitle">Shortest exposure, cap on (optional)</p>
+                <div class="drop-zone" id="biasDropZone">
+                    <div class="drop-zone-content">
+                        <div class="upload-icon">📁</div>
+                        <p class="drop-text">Drop your bias frames here</p>
+                        <p class="or-text">or</p>
+                        <button class="btn btn-browse" id="biasBrowseBtn">Browse Files</button>
+                        <input type="file" id="biasFileInput" class="file-input" multiple accept=".fits,.fit,.cr2,.nef,.dng,.jpg,.jpeg,.png,.tiff,.tif">
+                    </div>
+                </div>
+                <div class="file-list" id="biasFileList"></div>
+            </div>
+
+            <div class="file-upload-area">
+                <h3>☁️ Flat Frames</h3>
+                <p class="subtitle">Even illumination, no optics (optional)</p>
+                <div class="drop-zone" id="flatDropZone">
+                    <div class="drop-zone-content">
+                        <div class="upload-icon">📁</div>
+                        <p class="drop-text">Drop your flat frames here</p>
+                        <p class="or-text">or</p>
+                        <button class="btn btn-browse" id="flatBrowseBtn">Browse Files</button>
+                        <input type="file" id="flatFileInput" class="file-input" multiple accept=".fits,.fit,.cr2,.nef,.dng,.jpg,.jpeg,.png,.tiff,.tif">
+                    </div>
+                </div>
+                <div class="file-list" id="flatFileList"></div>
+            </div>
+        </div>
+
+        <div class="controls-section"> <div class="output-options">
+                <h3>⚙️ Output Options</h3>
+                <div class="option-group">
+                    <label for="outputFormat">Output Format:</label>
+                    <select id="outputFormat" class="select-style">
+                        <option value="png">PNG</option>
+                        <option value="tiff">TIFF</option>
+                        <option value="fits">FITS</option>
+                        <option value="jpg">JPG</option> </select>
+                </div>
+                <div class="option-group">
+                    <label for="backgroundSubtractionMethod">Background Subtraction:</label>
+                    <select id="backgroundSubtractionMethod" class="select-style">
+                        <option value="none">None</option>
+                        <option value="median">Median</option>
+                        <option value="gradient">Gradient (Coming Soon)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="stackBtn" class="btn btn-stack">
+                    <span class="btn-icon">✨</span>
+                    Stack Images
+                </button>
+                <button id="clearBtn" class="btn btn-clear">
+                    <span class="btn-icon">🧹</span>
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">Ready to stack images ✨</div>
+            </div>
+        </div>
+
+        <div class="console-section">
+            <h3>📟 Console Output</h3>
+            <div class="console" id="console">
+                <div class="console-line">🌌 AstroStacker v0.4 initialized</div>
+                <div class="console-line">Ready for some stellar image stacking...</div>
+            </div>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h3>✨ Your Stacked Masterpiece</h3>
+            <div class="result-info" id="resultInfo"></div>
+            <div class="image-preview-container">
+                <img id="stackedImagePreview" src="" alt="Stacked Image Preview" style="display: none;">
+            </div>
+            <button id="downloadBtn" class="btn btn-download" style="display: none;">
+                <span class="btn-icon">⬇️</span>
+                Download Result
+            </button>
+        </div>
+    </div>
+    <script src="/static/js/upload.js" defer></script>
+</body>
+</html>
