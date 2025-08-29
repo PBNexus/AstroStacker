@@ -1,10 +1,11 @@
-# AstroStacker (local copy)
+# AstroStacker
 
 ✨ Quick snapshot
 AstroStacker is a local FastAPI-based image stacking pipeline aimed at astrophotography processing: calibration, hot-pixel removal, alignment, background subtraction and final stacking — with a tiny web UI for uploads and previews.
 
-> This README was auto-generated for the project contents you provided. Feel free to edit it to match your voice! 😎🚀
-
+>You will upload lights, darks, biases, and flats (lights is mandatory(ofcourse), rest are optional)
+>Uploaded frames can be of the following types: '.jpg', '.jpeg', '.png', '.tiff', '.tif','.fits', '.fit', '.cr2', '.nef', '.dng', '.arw'
+>It does the usual processes, images are aligned, calibration frames are made, Hot and Cold Pixels are removed, of the images takes place. and output is given in one of the selected formats- Output files can be of following types: 'fits', 'tiff', 'png', 'jpg'
 ---
 
 ## Highlights
@@ -29,5 +30,8 @@ AstroStacker is a local FastAPI-based image stacking pipeline aimed at astrophot
 3. Start the server
     ```bash
     python main.py
+    ```
     OR
+    ```bash
     uvicorn main:app
+    ```
